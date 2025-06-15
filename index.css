@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(25, 25, 25);
+  color: white;
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  min-height: 100svh; /* For mobile browsers */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.game-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: clamp(1rem, 3vw, 2rem);
+  width: min(100%, 800px);
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: clamp(1rem, 4vw, 2rem);
+}
+
+.title {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.subtitle {
+  color: #888;
+  margin-top: 0.5rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+.moves-container {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1rem, 4vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.move-icon {
+  height: clamp(30px, 8vw, 50px);
+  transition: transform 0.2s;
+}
+
+.move-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  width: clamp(80px, 20vw, 120px);
+  height: clamp(80px, 20vw, 120px);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.move-button:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.game-info {
+  text-align: center;
+  margin: clamp(1rem, 4vw, 2rem) 0;
+}
+
+.result {
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-weight: bold;
+  margin: 1rem 0;
+  min-height: 2.2rem;
+}
+
+.moves-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.score-container {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: clamp(0.8rem, 3vw, 1rem);
+  margin: 1.5rem auto;
+  max-width: 300px;
+}
+
+.score-container h2 {
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+  margin-bottom: 0.5rem;
+}
+
+.score {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin: 0.5rem 0;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  margin-top: clamp(1rem, 4vw, 2rem);
+  flex-wrap: wrap;
+}
+
+.control-button {
+  background-color: #4ecdc4;
+  color: white;
+  border: none;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.reset-score-button {
+  background-color: #ff6b6b;
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.keyboard-hints {
+  text-align: center;
+  margin-top: clamp(1rem, 4vw, 2rem);
+  color: #888;
+  font-size: clamp(0.8rem, 2vw, 0.9rem);
+}
+
+.keyboard-hints ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+kbd {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Media Queries for different screen sizes */
+@media (max-width: 480px) {
+  .game-container {
+    padding: 1rem;
+  }
+
+  .moves-container {
+    gap: 0.8rem;
+  }
+
+  .keyboard-hints ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .game-container {
+    padding: 1.5rem;
+  }
+}
+
+/* For landscape orientation on mobile devices */
+@media (max-height: 600px) and (orientation: landscape) {
+  .game-container {
+    padding: 1rem;
+  }
+
+  .header {
+    margin-bottom: 0.5rem;
+  }
+
+  .moves-container {
+    margin-bottom: 1rem;
+  }
+
+  .game-info {
+    margin: 0.5rem 0;
+  }
+
+  .keyboard-hints {
+    display: none;
+  }
+}
+
+/* For ultra-wide screens */
+@media (min-width: 1400px) {
+  .game-container {
+    max-width: 1000px;
+  }
+
+  .move-button {
+    width: 150px;
+    height: 150px;
+  }
+
+  .move-icon {
+    height: 60px;
+  }
+}
