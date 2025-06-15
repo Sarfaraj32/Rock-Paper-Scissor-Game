@@ -10,5 +10,68 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
   </head>
-  <body></body>
+  <body>
+    <div class="game-container">
+      <div class="header">
+        <h1 class="title">Rock Paper Scissors</h1>
+        <p class="subtitle">Choose your move!</p>
+      </div>
+
+      <div class="game-area">
+        <div class="moves-container">
+          <button class="move-button js-rock-button">
+            <img src="rock-emoji.png" class="move-icon" />
+          </button>
+
+          <button class="move-button js-paper-button">
+            <img src="paper-emoji.png" class="move-icon" />
+          </button>
+
+          <button class="move-button js-scissors-button">
+            <img src="scissors-emoji.png" class="move-icon" />
+          </button>
+        </div>
+
+        <div class="game-info">
+          <p class="js-result result"></p>
+          <p class="js-moves moves-display"></p>
+
+          <div class="score-container">
+            <h2>Score Board</h2>
+            <p class="js-score score"></p>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button
+            class="control-button reset-score-button js-reset-score-button"
+            onclick="
+              score.wins = 0;
+              score.losses = 0;
+              score.ties = 0;
+              localStorage.removeItem('score');
+              updateScoreElement();
+            "
+          >
+            <i class="fas fa-redo"></i> Reset Score
+          </button>
+          <button class="control-button auto-play-button" onclick="autoPlay();">
+            <i class="fas fa-play"></i> Auto Play
+          </button>
+        </div>
+
+        <div class="keyboard-hints">
+          <p>Keyboard shortcuts:</p>
+          <ul>
+            <li><kbd>R</kbd> for Rock</li>
+            <li><kbd>P</kbd> for Paper</li>
+            <li><kbd>S</kbd> for Scissors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+  </body>
 </html>
